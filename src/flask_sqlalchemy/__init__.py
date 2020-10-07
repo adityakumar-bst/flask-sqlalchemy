@@ -581,7 +581,8 @@ class _EngineConnector:
     def get_options(self, sa_url, echo):
         options = {}
 
-        self._sa.apply_driver_hacks(self._app, sa_url, options)
+        self._sa.
+        ks(self._app, sa_url, options)
 
         if echo:
             options["echo"] = echo
@@ -863,9 +864,9 @@ class SQLAlchemy:
         """
         if sa_url.drivername.startswith("mysql"):
             sa_url.query.setdefault("charset", "utf8")
-            if sa_url.drivername != "mysql+gaerdbms":
-                options.setdefault("pool_size", 10)
-                options.setdefault("pool_recycle", 7200)
+#             if sa_url.drivername != "mysql+gaerdbms":
+#                 options.setdefault("pool_size", 10)
+#                 options.setdefault("pool_recycle", 7200)
         elif sa_url.drivername == "sqlite":
             pool_size = options.get("pool_size")
             detected_in_memory = False
