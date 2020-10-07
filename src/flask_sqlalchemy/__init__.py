@@ -581,8 +581,7 @@ class _EngineConnector:
     def get_options(self, sa_url, echo):
         options = {}
 
-        self._sa.
-        ks(self._app, sa_url, options)
+        self._sa.apply_driver_hacks(self._app, sa_url, options)
 
         if echo:
             options["echo"] = echo
